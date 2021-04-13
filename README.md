@@ -1,4 +1,4 @@
-# Team-1
+# Helios - Team-1
 
 ## Team Logo, Icon or Meme
 
