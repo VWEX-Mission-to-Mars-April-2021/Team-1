@@ -14,10 +14,9 @@ https://www.tinkercad.com
 
 ## Scrum Git
 layla elephant
-
 leon harper
-
 Samuel Axolotal
+Andy Sniper Monkey
 
 ## Retrospective Day 1
 
