@@ -13,13 +13,10 @@ https://www.tinkercad.com
 - Help each other out
 
 ## Scrum Git
-layla elephant
-
-leon harper
-
-Samuel Axolotal
-
-Andy Sniper Monkey
+- Layla elephant
+- Leon harper
+- Samuel Axolotal
+- Andy Sniper Monkey
 
 ## Retrospective Day 1
 
