@@ -15,6 +15,8 @@ layla elephant
 
 leon harper
 
+Samuel Axolotal
+
 ## Retrospective Day 1
 
 ## Retrospective Day 2
