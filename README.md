@@ -1,4 +1,4 @@
-# Helios - Team #1
+# Helios
 
 ## Team Logo, Icon or Meme
 ![Screenshot 2021-04-13 113854](https://user-images.githubusercontent.com/82400464/114539919-e0544a00-9c4c-11eb-9be6-cdd535f290de.png)
