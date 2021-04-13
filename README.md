@@ -19,6 +19,14 @@ https://www.tinkercad.com
 - Andy Sniper Monkey
 
 ## Retrospective Day 1
+what went well:
+- made a good start w/ github
+- team knew their independent parts
+- everyone played an active role; no one was idle
+
+things that could have been better:
+- getting used to coding on tinkercad
+- refer to documentation for better understanding
 
 ## Retrospective Day 2
 
