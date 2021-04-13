@@ -13,6 +13,8 @@ https://www.tinkercad.com
 ## Scrum Git
 layla elephant
 
+leon harper
+
 ## Retrospective Day 1
 
 ## Retrospective Day 2
