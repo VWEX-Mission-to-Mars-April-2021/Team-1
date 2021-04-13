@@ -7,6 +7,8 @@ TinkerCad Circuit basic design URL is
 https://www.tinkercad.com
 
 ## Team Values
+- Must post sun memes on a daily   basis
+- Must have window open despite    temperature
 
 ## Scrum Git
 
