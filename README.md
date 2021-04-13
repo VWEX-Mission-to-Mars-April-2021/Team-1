@@ -1,4 +1,4 @@
-# Helios - Team 1
+# Helios
 
 ## Team Logo, Icon or Meme
 ![Screenshot 2021-04-13 113854](https://user-images.githubusercontent.com/82400464/114539919-e0544a00-9c4c-11eb-9be6-cdd535f290de.png)
@@ -9,6 +9,8 @@ https://www.tinkercad.com
 ## Team Values
 - Must post sun memes on a daily   basis
 - Must have window open despite    temperature
+- Must commit "Don't know" on code we don't know
+- Help each other out
 
 ## Scrum Git
 layla elephant
