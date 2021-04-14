@@ -11,6 +11,7 @@ https://www.tinkercad.com
 - Must have window open despite    temperature
 - Must commit "Don't know" on code we don't know
 - Help each other out
+- We don't copy other team's code 😉
 
 ## Scrum Git
 - Layla elephant
@@ -29,6 +30,15 @@ things that could have been better:
 - refer to documentation for better understanding
 
 ## Retrospective Day 2
+what went well:
+- More Productive Due To Team Split
+- Solid Communication
+- 
+
+things that could have been better:
+- Checking Code Properly
+- Uploading Properly
+- Tighter Team Collaboration With Certain Members
 
 ## Retrospective Final Day
 
