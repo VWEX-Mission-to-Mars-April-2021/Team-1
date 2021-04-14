@@ -1,3 +1,7 @@
+laylabb
+#1230
+
+SpoookiBoi — Today at 2:59 PM
 /*
   This program blinks pin 13 of the Arduino (the
   built-in LED)
@@ -52,14 +56,120 @@ void loop()
 {
   // Print out left counter value until the motors reach 2 metres
   
-  if (millis() > 10000){
+  if (millis() > 6000){
     TurnOffMotors();
   }
   else
   {
     MoveForward();
+    delay(1000);
+    QuickLeft();
+    delay(500);
+  }
+}
+
+void AdjustSpeed()
+{
+  if (leftMotorCounter > rightMotorCounter){
+    RightTurn = RightTurn + 1;
+    analogWrite(RIGHT_ENABLE,RightTurn);
+    LeftTurn = LeftTurn - 1;
+    analogWrite(LEFT_ENABLE,LeftTurn);
     
-    AdjustSpeed();
+    Serial.print("Right Counter: ");
+    Serial.println(rightMotorCounter);
+    Serial.println("---------------");
+    Serial.print("Right Turn: ");
+    Serial.println(RightTurn);
+  }
+  else if (rightMotorCounter > leftMotorCounter){
+    LeftTurn = LeftTurn + 1;
+    analogWrite(LEFT_ENABLE,LeftTurn);
+    RightTurn = RightTurn - 1;
+    analogWrite(RIGHT_ENABLE,RightTurn);
+    
+    Serial.print("Left Counter: ");
+    Serial.println(leftMotorCounter);
+    Serial.println("---------------");
+    Serial.print("Left Turn: ");
+    Serial.println(LeftTurn);
+  }
+}
+
+void MoveForward()
+{
+  TurnOnMotors();
+  digitalWrite(RIGHT_REVERSE, LOW);
+  digitalWrite(LEFT_REVERSE, LOW);
+  
+... (68 lines left)
+Collapse
+message.txt
+4 KB
+﻿
+/*
+  This program blinks pin 13 of the Arduino (the
+  built-in LED)
+*/
+
+// help
+
+const int LEFT_FEEDBACK = 2; // Pin numbers on Rover
+const int RIGHT_FEEDBACK = 3;
+
+volatile int leftMotorCounter = 0; // initiate counter to zero for start
+volatile int rightMotorCounter = 0; // counter could always be reset
+volatile int RightTurn = 130;
+volatile int LeftTurn = 130;
+
+const int RIGHT_FORWARD = 12;
+const int RIGHT_REVERSE = 11;
+const int RIGHT_ENABLE = 10;
+const int LEFT_ENABLE = 9;
+const int LEFT_FORWARD = 8;
+const int LEFT_REVERSE = 7;
+
+const int FORWARD_IN_MILLISECONDS = 5000;
+const int STOP_IN_MILLISECONDS = 1000;
+const int REVERSE_IN_MILLISECONDS = 2000;
+
+const int DELAY_TURN = 2000;
+
+const int COUNTS_PER_METRE = 435;
+
+const int LEFT_TURN_SPEED = 130;
+const int RIGHT_TURN_SPEED = 130;
+
+void setup()
+{
+  Serial.begin(115200);
+  attachInterrupt(digitalPinToInterrupt(LEFT_FEEDBACK),LeftMotorISR,RISING);
+  attachInterrupt(digitalPinToInterrupt(RIGHT_FEEDBACK),RightMotorISR,RISING);
+  
+  pinMode(RIGHT_FORWARD, OUTPUT);
+  pinMode(LEFT_FORWARD, OUTPUT);
+  
+  pinMode(RIGHT_ENABLE, OUTPUT);
+  pinMode(LEFT_ENABLE, OUTPUT);
+  
+  pinMode(RIGHT_REVERSE, OUTPUT);
+  pinMode(LEFT_REVERSE, OUTPUT);
+  
+}
+
+void loop()
+{
+  // Print out left counter value until the motors reach 2 metres
+  
+  if (millis() > 6000){
+    TurnOffMotors();
+  }
+  else
+  {
+    MoveForward();
+    delay(1000);
+    QuickLeft();
+    delay(500);
   }
 }
 
@@ -157,5 +267,12 @@ void LeftMotorISR(){
 void RightMotorISR() {
   // adds one to the counter on each motor revolution
   rightMotorCounter++;
+}
+void QuickLeft(){
+  analogWrite(LEFT_FORWARD, LOW);
+  analogWrite(RIGHT_REVERSE, LOW);
+  
+  analogWrite(LEFT_REVERSE, HIGH);
+  analogWrite(RIGHT_FORWARD, HIGH);  
 }
   
