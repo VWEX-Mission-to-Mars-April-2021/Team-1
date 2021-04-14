@@ -22,7 +22,7 @@ const int FORWARD_IN_MILLISECONDS = 5000;
 const int STOP_IN_MILLISECONDS = 1000;
 const int REVERSE_IN_MILLISECONDS = 2000;
 
-const int DELAY_TURN = 250;
+const int DELAY_TURN = 2000;
 
 const int COUNTS_PER_METRE = 435;
 
@@ -60,10 +60,10 @@ void loop()
     Serial.println(leftcounter); // This is printing then a new Line after
     */
     MoveForward();
-	delay(DELAY_TURN);
+  delay(DELAY_TURN);
     TurnRight();
-	delay(DELAY_TURN);
-	TurnLeft();
+  delay(DELAY_TURN);
+    TurnLeft();
   }
 }
 
@@ -102,8 +102,8 @@ void TurnOffMotors()
 
 void TurnRight()
 {
-  analogWrite(LEFT_ENABLE,200);
-  analogWrite(RIGHT_ENABLE,160);
+  analogWrite(LEFT_ENABLE,255);
+  analogWrite(RIGHT_ENABLE,100);
   
   //digitalWrite(RIGHT_FORWARD, HIGH);
   //digitalWrite(LEFT_FORWARD, LOW);
@@ -111,8 +111,8 @@ void TurnRight()
 
 void TurnLeft()
 {
-  analogWrite(RIGHT_ENABLE,200);
-  analogWrite(LEFT_ENABLE,160);
+  analogWrite(RIGHT_ENABLE,255);
+  analogWrite(LEFT_ENABLE,100);
   //digitalWrite(LEFT_FORWARD, HIGH);
   //digitalWrite(RIGHT_FORWARD, LOW);
 }
