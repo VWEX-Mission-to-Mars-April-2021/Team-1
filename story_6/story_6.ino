@@ -1,5 +1,4 @@
-
-  /*
+/*
   This program blinks pin 13 of the Arduino (the
   built-in LED)
 */
@@ -53,15 +52,14 @@ void loop()
 {
   // Print out left counter value until the motors reach 2 metres
   
-  if (millis() > 6000){
+  if (millis() > 10000){
     TurnOffMotors();
   }
   else
   {
     MoveForward();
-    delay(1000);
-    QuickLeft();
-    delay(500);
+    d
+    AdjustSpeed();
   }
 }
 
@@ -161,9 +159,5 @@ void RightMotorISR() {
   rightMotorCounter++;
 }
 void QuickLeft(){
-  analogWrite(LEFT_FORWARD, LOW);
-  analogWrite(RIGHT_REVERSE, LOW);
-  
-  analogWrite(LEFT_REVERSE, HIGH);
-  analogWrite(RIGHT_FORWARD, HIGH);  
+  analogWrite(LEFT_REVERSE, 
 }
