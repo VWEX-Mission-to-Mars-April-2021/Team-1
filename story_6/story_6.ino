@@ -52,14 +52,15 @@ void loop()
 {
   // Print out left counter value until the motors reach 2 metres
   
-  if (millis() > 10000){
+  if (millis() > 13,360){
     TurnOffMotors();
   }
   else
   {
     MoveForward();
-    d
-    AdjustSpeed();
+    delay(2000);
+    QuickLeft();
+    delay(1340);
   }
 }
 
@@ -159,5 +160,9 @@ void RightMotorISR() {
   rightMotorCounter++;
 }
 void QuickLeft(){
-  analogWrite(LEFT_REVERSE, 
+  digitalWrite(LEFT_FORWARD, LOW);
+  digitalWrite(RIGHT_REVERSE, LOW);
+  
+  digitalWrite(LEFT_REVERSE, HIGH);
+  digitalWrite(RIGHT_FORWARD, HIGH);  
 }
