@@ -10,8 +10,8 @@ const int RIGHT_FEEDBACK = 3;
 
 volatile int leftMotorCounter = 0; // initiate counter to zero for start
 volatile int rightMotorCounter = 0; // counter could always be reset
-volatile int RightTurn = 200;
-volatile int LeftTurn = 200;
+volatile int RightTurn = 130;
+volatile int LeftTurn = 130;
 
 const int RIGHT_FORWARD = 12;
 const int RIGHT_REVERSE = 11;
@@ -28,8 +28,8 @@ const int DELAY_TURN = 2000;
 
 const int COUNTS_PER_METRE = 435;
 
-const int LEFT_TURN_SPEED = 200;
-const int RIGHT_TURN_SPEED = 200;
+const int LEFT_TURN_SPEED = 130;
+const int RIGHT_TURN_SPEED = 130;
 
 void setup()
 {
@@ -58,6 +58,7 @@ void loop()
   else
   {
     MoveForward();
+    
     AdjustSpeed();
   }
 }
@@ -67,6 +68,8 @@ void AdjustSpeed()
   if (leftMotorCounter > rightMotorCounter){
     RightTurn = RightTurn + 1;
     analogWrite(RIGHT_ENABLE,RightTurn);
+    LeftTurn = LeftTurn - 1;
+    analogWrite(LEFT_ENABLE,LeftTurn);
     
     Serial.print("Right Counter: ");
     Serial.println(rightMotorCounter);
@@ -76,7 +79,9 @@ void AdjustSpeed()
   }
   else if (rightMotorCounter > leftMotorCounter){
     LeftTurn = LeftTurn + 1;
-    analogWrite(RIGHT_ENABLE,LeftTurn);
+    analogWrite(LEFT_ENABLE,LeftTurn);
+    RightTurn = RightTurn - 1;
+    analogWrite(RIGHT_ENABLE,RightTurn);
     
     Serial.print("Left Counter: ");
     Serial.println(leftMotorCounter);
@@ -153,3 +158,4 @@ void RightMotorISR() {
   // adds one to the counter on each motor revolution
   rightMotorCounter++;
 }
+  
