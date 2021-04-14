@@ -33,7 +33,6 @@ things that could have been better:
 what went well:
 - More Productive Due To Team Split
 - Solid Communication
-- 
 
 things that could have been better:
 - Checking Code Properly
