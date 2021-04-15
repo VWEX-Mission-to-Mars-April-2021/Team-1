@@ -90,6 +90,7 @@ void loop()
     } 
   else {
     MoveForward();
+    delay(1000);
     QuickLeft();
     delay(NINETY_DEGREE_TURN_IN_MS);
   }
