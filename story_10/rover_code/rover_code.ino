@@ -31,6 +31,9 @@ const int DELAY_TURN = 2000;
 
 const int COUNTS_PER_METRE = 435;
 
+const int LEFT_TURN_SPEED = 130;
+const int RIGHT_TURN_SPEED = 130;
+
 const int AIRWAVE_DELAY = 50;
 
 NewPing frontSonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE_IN_CM);
