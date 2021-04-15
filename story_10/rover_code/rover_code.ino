@@ -3,7 +3,11 @@
 #define ECHO_PIN     5
 #define TRIGGER_PIN  4
 #define MAX_DISTANCE_IN_CM  200
+<<<<<<< HEAD
 #define MAX_DISTANCE_TO_GROUND 15
+=======
+#define MAX_DISTANCE_TO_GROUND 16
+>>>>>>> 145e800d2d5dadf3b0efc2a828f11c6331fe1010
 #define TRIGGER_DOWN 13
 #define ECHO_DOWN 17
 
@@ -62,6 +66,7 @@ void loop()
 {
   delay(AIRWAVE_DELAY);
   int downDistance = downSonar.ping_cm();
+  /*
   int frontDistance = frontSonar.ping_cm();
   if (frontDistance <= 13) {
     TurnOffMotors();
@@ -71,20 +76,32 @@ void loop()
     QuickLeft();
     delay(NINETY_DEGREE_TURN_IN_MS);
   }
+<<<<<<< HEAD
+=======
+  */
+>>>>>>> 145e800d2d5dadf3b0efc2a828f11c6331fe1010
   if (downDistance >= MAX_DISTANCE_TO_GROUND)
   {
     TurnOffMotors();
     delay(500);
     Reverse();
+<<<<<<< HEAD
     delay(500);
     QuickLeft();
     delay(7800);
+=======
+    delay(1000);
+    TurnOffMotors();
+    exit(0);
+>>>>>>> 145e800d2d5dadf3b0efc2a828f11c6331fe1010
   }
   MoveForward();
   delay(1000);
   QuickLeft();
   delay(NINETY_DEGREE_TURN_IN_MS);
 }
+
+
 //Adjustment of the speed of each motor to make the Rover be able to go forwards straight
 void AdjustSpeed()
 {
