@@ -3,7 +3,7 @@
 #define ECHO_PIN     5
 #define TRIGGER_PIN  4
 #define MAX_DISTANCE_IN_CM  200
-#define MAX_DISTANCE_TO_GROUND 10
+#define MAX_DISTANCE_TO_GROUND 15
 #define TRIGGER_DOWN 13
 #define ECHO_DOWN 17
 
