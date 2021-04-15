@@ -14,7 +14,7 @@ volatile int leftMotorCounter = 0; // initiate counter to zero for start
 volatile int rightMotorCounter = 0; // counter could always be reset
 volatile int rightTurn = 130;
 volatile int leftTurn = 130;
-volatile int turns = 4;
+
 
 const int RIGHT_FORWARD = 12;
 const int RIGHT_REVERSE = 11;
@@ -38,7 +38,6 @@ const int NINETY_DEGREE_TURN_IN_MS = 1300;
 const int AIRWAVE_DELAY = 50;
 
 NewPing frontSonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE_IN_CM);
-NewPing downSonar(TRIGGER_DOWN, ECHO_DOWN, MAX_DISTANCE_IN_CM);
 
 void setup()
 {
@@ -61,38 +60,22 @@ void setup()
 void loop()
 {
   delay(AIRWAVE_DELAY);
-  int downDistance = downSonar.ping_cm();
   int frontDistance = frontSonar.ping_cm();
   if (frontDistance <= 13) {
     TurnOffMotors();
     delay(500);
     Reverse();
-    delay(1000);
-   
+    delay(2000);
+    QuickLeft();
+    delay(6500);
     QuickLeft();
     delay(NINETY_DEGREE_TURN_IN_MS);
-  }
-  if (downDistance >= MAX_DISTANCE_TO_GROUND)
-  {
-    TurnOffMotors();
-    delay(500);
-    Reverse();
-    delay(500);
-    QuickLeft();
-    delay(7800);
-  }
-
-  if (turns == 4){
-    turns = 0;
-    MoveForward();
-    delay(4000);
-      
-    } 
-  else {
     MoveForward();
     delay(1000);
     QuickLeft();
-    delay(NINETY_DEGREE_TURN_IN_MS);
+    delay(6500);
+    exit(0);
+    
   }
   
 }
