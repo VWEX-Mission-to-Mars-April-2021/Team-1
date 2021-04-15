@@ -1,9 +1,8 @@
-/*
-  This program blinks pin 13 of the Arduino (the
-  built-in LED)
-*/
+#include <NewPing.h>
 
-// help
+#define ECHO_PIN     5
+#define TRIGGER_PIN  4
+#define MAX_DISTANCE_IN_CM  200
 
 const int LEFT_FEEDBACK = 2; // Pin numbers on Rover
 const int RIGHT_FEEDBACK = 3;
@@ -20,8 +19,6 @@ const int RIGHT_ENABLE = 10;
 const int LEFT_ENABLE = 9;
 const int LEFT_FORWARD = 8;
 const int LEFT_REVERSE = 7;
-const int ECHO_PIN = 4;
-const int TRIGGER_PIN = 5;
 
 const int FORWARD_IN_MILLISECONDS = 5000;
 const int STOP_IN_MILLISECONDS = 1000;
@@ -35,7 +32,8 @@ const int LEFT_TURN_SPEED = 130;
 const int RIGHT_TURN_SPEED = 130;
 
 const int AIRWAVE_DELAY = 50;
-const int MAX_DISTANCE_IN_CM = 200;
+
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE_IN_CM);
 
 void setup()
 {
@@ -54,8 +52,6 @@ void setup()
 
   sonar.ping_cm();
 }
-
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE_IN_CM);
 
 void loop()
 {
