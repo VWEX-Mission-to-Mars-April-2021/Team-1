@@ -7,14 +7,14 @@
 #define TRIGGER_DOWN 13
 #define ECHO_DOWN 17
 
-const int LEFT_FEEDBACK = 2; // Pin numbers on Rover
+const int LEFT_FEEDBACK = 2; 
 const int RIGHT_FEEDBACK = 3;
 
 volatile int leftMotorCounter = 0; // initiate counter to zero for start
 volatile int rightMotorCounter = 0; // counter could always be reset
 volatile int rightTurn = 130;
 volatile int leftTurn = 130;
-volatile int turns = 0;
+volatile int turns = 4;
 
 const int RIGHT_FORWARD = 12;
 const int RIGHT_REVERSE = 11;
@@ -68,6 +68,7 @@ void loop()
     delay(500);
     Reverse();
     delay(1000);
+   
     QuickLeft();
     delay(NINETY_DEGREE_TURN_IN_MS);
   }
@@ -80,10 +81,19 @@ void loop()
     QuickLeft();
     delay(7800);
   }
-  MoveForward();
-  delay(1000);
-  QuickLeft();
-  delay(NINETY_DEGREE_TURN_IN_MS);
+
+  if (turns == 4){
+    turns = 0;
+    MoveForward();
+    delay(4000);
+      
+    } 
+  else {
+    MoveForward();
+    QuickLeft();
+    delay(NINETY_DEGREE_TURN_IN_MS);
+  }
+  
 }
 //Adjustment of the speed of each motor to make the Rover be able to go forwards straight
 void AdjustSpeed()
@@ -113,7 +123,7 @@ void AdjustSpeed()
     Serial.println(leftTurn);
   }
 }
-// Void for Moving Forwards
+
 void MoveForward()
 {
   TurnOnMotors();
@@ -123,7 +133,7 @@ void MoveForward()
   digitalWrite(RIGHT_FORWARD, HIGH);
   digitalWrite(LEFT_FORWARD, HIGH);
 }
-// Void for going in Reverse
+
 void Reverse()
 { 
   TurnOnMotors();
@@ -134,7 +144,7 @@ void Reverse()
   digitalWrite(RIGHT_REVERSE, HIGH);
   digitalWrite(LEFT_REVERSE, HIGH);
 }
-//Turns Off the Motors, full halt
+
 void TurnOffMotors()
 {  
   analogWrite(RIGHT_ENABLE, 0);
@@ -146,41 +156,30 @@ void TurnOffMotors()
   digitalWrite(RIGHT_REVERSE,LOW);
   digitalWrite(LEFT_REVERSE,LOW);
 }
-//Turns right at a slight angle
+
 void TurnRight()
 {
   analogWrite(LEFT_ENABLE,200);
   analogWrite(RIGHT_ENABLE,160);
-  
-  //digitalWrite(RIGHT_FORWARD, HIGH);
-  //digitalWrite(LEFT_FORWARD, LOW);
 }
 
-//Turns Left  at a slight angle
 void TurnLeft()
 {
   analogWrite(RIGHT_ENABLE,200);
   analogWrite(LEFT_ENABLE,160);
-  //digitalWrite(LEFT_FORWARD, HIGH);
-  //digitalWrite(RIGHT_FORWARD, LOW);
 }
 
-//Turns on the Motors via analog to set Turn Speed
 void TurnOnMotors()
 {
   analogWrite(LEFT_ENABLE, LEFT_TURN_SPEED);
   analogWrite(RIGHT_ENABLE, RIGHT_TURN_SPEED);
   
-  //digitalWrite(RIGHT_ENABLE, HIGH);
-  //digitalWrite(LEFT_ENABLE, HIGH);
 }
 
 void LeftMotorISR(){
-  // adds one to the counter on each motor revolution
   leftMotorCounter++;
 }
 void RightMotorISR() {
-  // adds one to the counter on each motor revolution
   rightMotorCounter++;
 }
 //Void turn Quickly To Left
