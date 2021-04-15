@@ -41,6 +41,16 @@ things that could have been better:
 
 ## Retrospective Final Day
 
+www:
+- Everyone contributed 
+- Better communication
+- Collaboration
+- More apps used
+- MEMES!!
+
+EBI:
+- The turns
+
 ---------------------------------------------------------
 
 This is the readme. Formatting of text is as follows.
