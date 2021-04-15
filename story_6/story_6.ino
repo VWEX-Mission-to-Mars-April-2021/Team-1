@@ -12,6 +12,7 @@ volatile int leftMotorCounter = 0; // initiate counter to zero for start
 volatile int rightMotorCounter = 0; // counter could always be reset
 volatile int RightTurn = 130;
 volatile int LeftTurn = 130;
+volatile int Turns = 0;
 
 const int RIGHT_FORWARD = 12;
 const int RIGHT_REVERSE = 11;
@@ -52,7 +53,10 @@ void loop()
 {
   // Print out left counter value until the motors reach 2 metres
   
-  if (millis() > 13,360){
+  //if (millis() > 13,360){
+    //TurnOffMotors();
+  //}
+  if (Turns == 4) {
     TurnOffMotors();
   }
   else
@@ -60,7 +64,8 @@ void loop()
     MoveForward();
     delay(2000);
     QuickLeft();
-    delay(1340);
+    delay(1335);
+    Turns += 1;
   }
 }
 
